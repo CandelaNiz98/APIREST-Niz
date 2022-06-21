@@ -1,0 +1,20 @@
+/* mat-card-content {
+  padding: 5rem 5rem;
+} */
+.bg{
+  background-color:#de95825c;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.titulo{
+  border-radius: 15px;
+  background-color:#eb8a72c2;
+}
+.bg-sombra {
+  /* border: 2px black solid; */
+  box-shadow: 30px 30px 30px #de958255;
+}
+.agregar{
+  color: black;
+}

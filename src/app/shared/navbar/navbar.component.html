@@ -1,0 +1,65 @@
+<mat-toolbar class="nav-superior">
+  
+  <div align="end">Bienvenido</div>
+  <div class="example-spacer"></div>
+  <h1 class="neon">Aplicación</h1>
+  <div class="example-spacer"></div>
+  <button mat-button class="menu-botton " (click)="cerrarSesion()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Salir</span>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav fxLayout="column" closed="true">
+    <div
+      fxLayout="column"
+      *ngIf="authService.isAuthenticated | async; else noConnect"
+      class="tabla"
+    >
+      <button mat-button class="menu-button neon" routerLink="/alumnos">
+       
+        <span><b>Alumnos</b></span>
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button neon" routerLink="/cursos">
+      
+        <span><b>Cursos</b></span>
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button neon" routerLink="/inscripciones">
+     
+        <span><b>Inscripciones</b></span>
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button
+        *ngIf="authService.isAdmin"
+        mat-button
+        class="menu-button neon"
+        routerLink="/usuarios"
+      >
+        
+        <span><b>Usuarios</b></span>
+      </button>
+      <div *ngIf="authService.isAdmin">
+        <mat-divider></mat-divider>
+      </div>      
+    </div>
+
+    <ng-template #noConnect>
+      <h3>Iniciar sesión para usar la app</h3>
+    </ng-template>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
